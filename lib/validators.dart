@@ -17,8 +17,8 @@ class Validators {
       {String errorText = "Password cannot contain more than 3 characters"}) {
     return (value) {
       if (value != null && value.isNotEmpty) {
-        if (value.length > length) {
-          return "Please no more than $length characters";
+        if (value.length <= length) {
+          return "Short password. Enter more than $length characters";
         }
       }
       return null;

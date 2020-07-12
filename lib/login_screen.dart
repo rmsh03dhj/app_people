@@ -87,13 +87,13 @@ class _LoginScreen extends State<LoginScreen> {
                 ),
                 onPressed: () {
                   if (_formKey.currentState.validate()) {
-                    if (_userNameController.text == "test" && _passwordController.text == "123") {
+                    if (_userNameController.text == "test" && _passwordController.text == "12345") {
                       Navigator.pushNamed(context, MainScreen.route);
                     } else {
                       _scaffoldKey.currentState.showSnackBar(
                         SnackBar(
                           content: Text(
-                            "Incorrect Login details.Please use \nUsername = test and \npassword = 123",
+                            "Incorrect Login details.Please use \nUsername = test and \npassword = 12345",
                           ),
                           duration: const Duration(seconds: 2),
                         ),
