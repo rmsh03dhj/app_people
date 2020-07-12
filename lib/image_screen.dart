@@ -19,37 +19,39 @@ class _MyHomePage extends State<ImageScreen> {
       appBar: AppBar(
         title: Text("Image Screen"),
       ),
-      body: Column(
-        children: [
-          Center(
-            child: RaisedButton(
-              child: Text("Upload Image"),
-              onPressed: () async {
-                File file = await ImagePickerDialogBox.showImagePicker(context);
-                setState(() {
-                  _toBeDisplayed = file;
-                });
-              },
-            ),
-          ),
-          _toBeDisplayed == null
-              ? Container()
-              : Center(
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.9,
-              height: MediaQuery.of(context).size.width*0.9,
-              decoration: BoxDecoration(
-                shape: BoxShape.rectangle,
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  image: FileImage(
-                    _toBeDisplayed,
-                  ),
-                ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+              child: RaisedButton(
+                child: Text("Upload Image"),
+                onPressed: () async {
+                  File file = await ImagePickerDialogBox.showImagePicker(context);
+                  setState(() {
+                    _toBeDisplayed = file;
+                  });
+                },
               ),
             ),
-          ),
-        ],
+            _toBeDisplayed == null
+                ? Container()
+                : Center(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.width * 0.9,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: FileImage(
+                            _toBeDisplayed,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+          ],
+        ),
       ),
     );
   }

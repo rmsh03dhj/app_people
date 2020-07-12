@@ -35,13 +35,16 @@ class _MainScreen extends State<MainScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: websites.length,
-              itemBuilder: (context, index) {
-                final item = websites[index];
-                return WebsiteDisplayTile(url: item);
-              },
+            Container(
+              height: MediaQuery.of(context).size.height * 0.7,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: websites.length,
+                itemBuilder: (context, index) {
+                  final item = websites[index];
+                  return WebsiteDisplayTile(url: item);
+                },
+              ),
             ),
             SizedBox(
               height: 24,
